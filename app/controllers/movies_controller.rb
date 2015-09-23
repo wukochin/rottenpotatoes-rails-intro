@@ -15,6 +15,7 @@ class MoviesController < ApplicationController
     @ratings = params[:ratings]
     
     # remember settings
+    session.delete(:some_key)
     by_remembered = @by.blank? && session[:by].present?
     ratings_remembered = @ratings.blank? && session[:ratings].present?
     if by_remembered || ratings_remembered
